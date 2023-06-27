@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: zip -r -x ".*" resourcepack.zip .
+      - run: zip -r resourcepack.zip . -x ".*"
       - uses: actions/upload-artifact@v3
         with:
           path: resourcepack.zip
