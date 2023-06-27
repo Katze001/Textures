@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "handle",
-		"1": "water",
+		"0": "testbottle/handle",
+		"1": "testbottle/water",
 		"particle": "handle"
 	},
 	"elements": [
