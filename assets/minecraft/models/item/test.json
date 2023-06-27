@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "item/custom/handle",
 		"1": "item/custom/water",
-		"particle": "handle"
+		"particle": "item/custom/handle"
 	},
 	"elements": [
 		{
