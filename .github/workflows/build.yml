@@ -4,18 +4,12 @@ on:
   push:
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          zip -r resourcepack.zip .
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add resourcepack.zip
-          git commit -m "Auto generate resourcepack.zip"
-          git push
+      - run: zip -r -x ".*" resourcepack.zip .
+      - uses: actions/upload-artifact@v3
+        with:
+          path: resourcepack.zip
