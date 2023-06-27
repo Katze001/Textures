@@ -5,7 +5,7 @@
     },
    
     "overrides": [
-     { "predicate": {"custom_model_data": 123456}, "model": "item/custom/test"}
+     { "predicate": {"custom_model_data": 123456}, "model": "item/test"}
    
     ]
    
