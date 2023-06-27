@@ -32,7 +32,6 @@ jobs:
           ref: main
 
       - name: Zip the resources
-        working-directory: ./Textures
         run: zip -r resourcepack.zip . -x ".*"
         
       - uses: actions/checkout@v3
