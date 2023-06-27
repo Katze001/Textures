@@ -2,7 +2,8 @@ name: Build zip
 
 on:
   push:
-  workflow_dispatch:
+    branches: 
+      - main
 
 permissions:
   contents: write
@@ -12,11 +13,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          rm resourcepack.zip
-          zip -r resourcepack.zip . -x ".*" 
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+        with:
+          ref: download
+          
+      - name: Configure git
+        run: | 
+          git config --global user.name github-actions
+          git config --global user.email "<>"
+
+      - name: Remove old resourcepack.zip
+        run: |
+          git rm resourcepack.zip
+          git commit -m "Remove old resourcepack.zip"
+          git push
+
+      - uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: Zip the resources
+        working-directory: ./Textures
+        run: zip -r resourcepack.zip . -x ".*"
+        
+      - uses: actions/checkout@v3
+        with:
+          ref: download
+      
+      - name: Auto generate resourcepack.zip
+        run: |
           git add resourcepack.zip
           git commit -m "Auto generate resourcepack.zip"
           git push
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          path: resourcepack.zip
+
