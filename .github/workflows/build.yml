@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          zip -r resourcepack.zip . -x .\* -x .\*/**
+          zip -r resourcepack.zip . -x */.*
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add resourcepack.zip
