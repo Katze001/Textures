@@ -6,7 +6,7 @@
 
   "overrides": [
     { "predicate": {"custom_model_data": 123457}, "model": "item/candy"},
-    { "predicate": {"custom_model_data": 1}, "model": "item/fish"}
+    { "predicate": {"custom_model_data": 123458}, "model": "item/fish"}
   
    ]
 }
